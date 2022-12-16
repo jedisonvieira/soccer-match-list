@@ -11,33 +11,11 @@ import {
 } from "react-native";
 
 export default function App() {
-  const [teamOne, setTeamOne] = useState("");
-  const [teamOneScore, setTeamOneScore] = useState(0);
-  const [teamTwo, setTeamTwo] = useState("");
-  const [teamTwoScore, setTeamTwoScore] = useState(0);
+ 
   const [betList, setBetList] = useState([]);
 
-  const clearFields = () => {
-    setTeamOne("");
-    setTeamTwo("");
-    setTeamOneScore(0);
-    setTeamTwoScore(0);
-  };
-  const addMatchScore = () => {
-    if (teamOne && teamTwo && teamOneScore && teamTwoScore) {
-      setBetList((currentList) => [
-        ...currentList,
-        {
-          id: Date.now(),
-          teamOne: teamOne,
-          teamTwo: teamTwo,
-          teamOneScore: teamOneScore,
-          teamTwoScore: teamTwoScore,
-        },
-      ]);
-      clearFields();
-    }
-  };
+
+
 
   return (
     <View style={styles.container}>
@@ -45,36 +23,7 @@ export default function App() {
       <View style={styles.header}>
         <Text style={styles.headerText}>Soccer match scores</Text>
       </View>
-      <View style={styles.scoreBoard}>
-        <TextInput
-          value={teamOne}
-          placeholder="Team One"
-          style={styles.teamInput}
-          onChangeText={(team) => setTeamOne(team)}
-        ></TextInput>
-        <TextInput
-          placeholder="0"
-          value={teamOneScore}
-          keyboardType="numeric"
-          style={styles.scoreInput}
-          onChangeText={(score) => setTeamOneScore(score)}
-        ></TextInput>
-        <Text>X</Text>
-        <TextInput
-          placeholder="0"
-          value={teamTwoScore}
-          keyboardType="numeric"
-          style={styles.scoreInput}
-          onChangeText={(score) => setTeamTwoScore(score)}
-        ></TextInput>
-        <TextInput
-          value={teamTwo}
-          placeholder="Team Two"
-          style={styles.teamInput}
-          onChangeText={(team) => setTeamTwo(team)}
-        ></TextInput>
-        <Button title="Place bet" onPress={addMatchScore}></Button>
-      </View>
+    
       <View style={styles.body}>
         <ScrollView>
           {betList.map(
@@ -114,27 +63,7 @@ const styles = StyleSheet.create({
   headerText: {
     fontSize: 24,
   },
-  scoreBoard: {
-    flex: 1,
-    flexWrap: "wrap",
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  teamInput: {
-    margin: 2,
-    padding: 6,
-    borderWidth: 1,
-    borderColor: "black",
-    width: "35%",
-  },
-  scoreInput: {
-    margin: 4,
-    padding: 16,
-    borderWidth: 1,
-    borderColor: "red",
-    width: "10%",
-  },
+ 
   body: { flex: 5 },
   betList: {
     flexDirection: "row",
