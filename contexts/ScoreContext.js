@@ -12,6 +12,7 @@ export const ScoreContextProvider = ({ children }) => {
     console.log(scoreList);
   
     const addMatchScore = (score) => {
+     
       setScoreList((currentList) => [...currentList, score]);
     };
     const setScores = (scores) => setScoreList(scores);

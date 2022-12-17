@@ -1,7 +1,8 @@
-import { View, TextInput, Button, StyleSheet } from "react-native";
+import { View, TextInput, Button, StyleSheet, Text, Alert } from "react-native";
 import { useContext, useState } from "react";
 import { ScoreContext } from "../../contexts/ScoreContext";
 import { addNewScore } from "../../services/ScoreAPI";
+
 const ScoreInput = () => {
     const scoreContext = useContext(ScoreContext);
     const [teamOne, setTeamOne] = useState("");
@@ -24,6 +25,8 @@ const ScoreInput = () => {
                 Alert.alert("Erro", "Erro ao salvar novo placar da partida");
             }
 
+        } else{
+            Alert.alert("Erro", "Favor preencher todos os campos");
         }
     };
     const clearFields = () => {
@@ -62,7 +65,9 @@ const ScoreInput = () => {
                 style={styles.teamInput}
                 onChangeText={(team) => setTeamTwo(team)}
             ></TextInput>
-            <Button title="Place bet" onPress={addMatchScore}></Button>
+           <View>
+            <Button title="Place bet" onPress={addMatchScore} color="darkkhaki" borderColor="black" ></Button>
+            </View> 
         </View>
     )
 }
@@ -74,21 +79,35 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         alignItems: "center",
         justifyContent: "center",
-      },
-      teamInput: {
+        marginTop:"5%",
+     
+    },
+    teamInput: {
         margin: 2,
         padding: 6,
-        borderWidth: 1,
-        borderColor: "black",
+        borderWidth: 2,
+        borderColor: "darkkhaki",
         width: "35%",
-      },
-      scoreInput: {
+        fontFamily: 'sans-serif',
+        fontWeight: "bold",
+        fontSize:16
+        
+    },
+  
+    scoreInput: {
+        flex: 1,
+        fontFamily: 'sans-serif',
+        fontWeight: "bold",
+        color:"white",
         margin: 4,
-        padding: 16,
+        padding: 8,
         borderWidth: 1,
-        borderColor: "red",
-        width: "10%",
-      },
+        borderColor:"darkkhaki",
+        textAlign:"center",
+        fontSize: 24,
+        backgroundColor: "darkkhaki",
+       
+    },
 });
 
 export default ScoreInput;

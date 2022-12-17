@@ -1,11 +1,14 @@
 import axios from "axios";
 
-const apiUrl = "http://10.0.2.2:3000/matches";
+const  baseURL=  'http://192.168.0.109:3000/matches'
+
 
 export const findAllScores = async () => {
-  return await axios.get(apiUrl);
+  console.log("Iniciando busca de partidas")
+  return await axios.get(baseURL);
 };
 
 export const addNewScore = async (score) => {
-  return await axios.post(apiUrl, score);
+  console.log("my new score" + score.teamOne)
+  return await axios.post(baseURL, score);
 };
