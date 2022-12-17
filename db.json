@@ -1,0 +1,25 @@
+{
+  "matches": [
+    {
+      "teamOne": "Brazil",
+      "teamTwo": "South Korea",
+      "teamOneScore": "4",
+      "teamTwoScore": "1",
+      "id": 1
+    },
+    {
+      "teamOne": "Spain",
+      "teamTwo": "Morroco",
+      "teamOneScore": "1",
+      "teamTwoScore": "1",
+      "id": 2
+    },
+    {
+      "teamOne": "Argentine",
+      "teamTwo": "Mexico",
+      "teamOneScore": "3",
+      "teamTwoScore": "1",
+      "id": 3
+    }
+  ]
+}
